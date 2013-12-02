@@ -1,7 +1,7 @@
 {
         "name": "mdm-yii2/mdm-select2",
         "description": "Select2 widget for Yii2... ",
-        "keywords": ["yii", "admin", "auth"],
+        "keywords": ["yii2", "select2"],
         "type": "yii2-extension",
         "license": "BSD-3-Clause",
         "support": {
