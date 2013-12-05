@@ -2,8 +2,10 @@
 
 namespace mdm\select2;
 
-use \yii\widgets\InputWidget;
+use yii\widgets\InputWidget;
 use yii\helpers\Html;
+use yii\helpers\Json;
+use yii\web\JsExpression;
 
 /**
  * Description of Select2
@@ -17,13 +19,9 @@ class Select2 extends InputWidget
 	 * @var array the HTML attributes for the input tag.
 	 */
 	public $options = [];
-
-	public $data;
-	
+	public $data = [];
 	public $multiple = false;
-	
-	private $_select2Options = [];
-
+	private $_options = [];
 
 	/**
 	 * 
@@ -35,6 +33,9 @@ class Select2 extends InputWidget
 		if (!isset($this->options['id'])) {
 			$this->options['id'] = $this->hasModel() ? Html::getInputId($this->model, $this->attribute) : $this->getId();
 		}
+		if($this->multiple){
+			$this->options['multiple'] = true;
+		}
 	}
 
 	/**
@@ -43,13 +44,9 @@ class Select2 extends InputWidget
 	public function run()
 	{
 		if ($this->hasModel()) {
-			if($this->data !== null){
-				echo Html::activeDropDownList($this->model, $this->attribute,  $this->data, $this->options);
-			}
+			echo Html::activeDropDownList($this->model, $this->attribute, $this->data, $this->options);
 		} else {
-			if($this->data !== null){
-				echo Html::dropDownList($this->name, $this->value,  $this->data, $this->options);
-			}
+			echo Html::dropDownList($this->name, $this->value, $this->data, $this->options);
 		}
 		$this->registerClientScript();
 	}
@@ -61,12 +58,8 @@ class Select2 extends InputWidget
 	{
 		$options = $this->getClientOptions();
 		$options = empty($options) ? '' : Json::encode($options);
-		$js = '';
-//		if (is_array($this->charMap) && !empty($this->charMap)) {
-//			$js .= 'jQuery.mask.definitions=' . Json::encode($this->charMap) . ";\n";
-//		}
 		$id = $this->options['id'];
-		$js .= "jQuery(\"#{$id}\").select2({$options});";
+		$js = "jQuery(\"#{$id}\").select2({$options});";
 		$view = $this->getView();
 		Select2Asset::register($view);
 		$view->registerJs($js);
@@ -77,36 +70,28 @@ class Select2 extends InputWidget
 	 */
 	protected function getClientOptions()
 	{
-		return [];
-		$options = [];
-		if ($this->placeholder !== null) {
-			$options['placeholder'] = $this->placeholder;
+		if(isset($this->_options['ajax'])){
+			$this->_options['ajax']['url'] = Html::url(ArrayHelper::getValue($this->_options['ajax'], 'url', ''));
+			
 		}
-
-		if ($this->completed !== null) {
-			if ($this->completed instanceof JsExpression) {
-				$options['completed'] = $this->completed;
-			} else {
-				$options['completed'] = new JsExpression($this->completed);
-			}
-		}
-
-		return $options;
+		
+		return $this->_options;
 	}
 
 	public function __set($name, $value)
 	{
-		if($this->canSetProperty($name)){
+		if ($this->canSetProperty($name)) {
 			parent::__set($name, $value);
 		}
-		$this->_select2Options[$name] = $value;
+		$this->_options[$name] = $value;
 	}
-	
+
 	public function __get($name)
 	{
-		if($this->canGetProperty($name)){
+		if ($this->canGetProperty($name)) {
 			return parent::__get($name);
 		}
-		return isset($this->_select2Options[$name])?$this->_select2Options[$name]:null;
+		return isset($this->_options[$name]) ? $this->_options[$name] : null;
 	}
+
 }
