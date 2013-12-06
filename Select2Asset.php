@@ -1,5 +1,5 @@
 <?php
-namespace mdm\select2;
+namespace mdm\widgets;
 /**
  * Description of Select2Asset
  *
@@ -10,7 +10,7 @@ class Select2Asset extends \yii\web\AssetBundle
 	/**
 	 * @inheritdoc
 	 */
-	public $sourcePath = '@mdm/select2/assets';
+	public $sourcePath = '@mdm/widgets/assets';
 	/**
 	 * @inheritdoc
 	 */

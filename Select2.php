@@ -1,11 +1,10 @@
 <?php
 
-namespace mdm\select2;
+namespace mdm\widgets;
 
 use yii\widgets\InputWidget;
 use yii\helpers\Html;
 use yii\helpers\Json;
-use yii\web\JsExpression;
 
 /**
  * Description of Select2
