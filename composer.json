@@ -1,12 +1,12 @@
 {
-        "name": "mdm-yii2/mdm-select2",
-        "description": "Select2 widget for Yii2... ",
-        "keywords": ["yii2", "select2"],
+        "name": "mdm-yii2/mdm-widgets",
+        "description": "Widgets for Yii2... ",
+        "keywords": ["yii2", "widget", "select2"],
         "type": "yii2-extension",
         "license": "BSD-3-Clause",
         "support": {
-                "issues": "https://github.com/mdm-yii2/mdm-select2/issues",
-                "source": "https://github.com/mdm-yii2/mdm-select2"
+                "issues": "https://github.com/mdm-yii2/mdm-widgets/issues",
+                "source": "https://github.com/mdm-yii2/mdm-widgets"
         },
         "authors": [
                 {
@@ -18,7 +18,7 @@
                 "yiisoft/yii2": "*"
         },
         "autoload": {
-                "psr-0": { "mdm\\select2\\": "" }
+                "psr-0": { "mdm\\widgets\\": "" }
         },
-        "target-dir": "mdm/select2"
+        "target-dir": "mdm/widgets"
 }
