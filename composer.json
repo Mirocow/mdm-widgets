@@ -1,24 +1,30 @@
 {
-        "name": "mdm-yii2/mdm-widgets",
+        "name": "mirocow/mirocow-widgets",
         "description": "Widgets for Yii2... ",
         "keywords": ["yii2", "widget", "select2"],
         "type": "yii2-extension",
         "license": "BSD-3-Clause",
         "support": {
-                "issues": "https://github.com/mdm-yii2/mdm-widgets/issues",
-                "source": "https://github.com/mdm-yii2/mdm-widgets"
+                "issues": "https://github.com/mirocow/mdm-widgets/issues",
+                "source": "https://github.com/mirocow/mdm-widgets"
         },
         "authors": [
                 {
                         "name": "Misbahul Munir",
                         "email": "misbahuldmunir@gmail.com"
-                }
+                }'
+				{
+					"name": "Mirocow",
+					"email": "mr.mirocow@gmail.com",
+					"homepage": "http://www.mirocow.com"
+				}				
         ],
         "require": {
                 "yiisoft/yii2": "*"
+				"ivaynberg/select2": "*"
         },
         "autoload": {
-                "psr-0": { "mdm\\widgets\\": "" }
+                "psr-0": { "mirocow\\widgets\\": "" }
         },
-        "target-dir": "mdm/widgets"
+        "target-dir": "mirocow/widgets"
 }
