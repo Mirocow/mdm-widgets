@@ -14,13 +14,13 @@
                         "email": "misbahuldmunir@gmail.com"
                 }'
 				{
-					"name": "Mirocow",
-					"email": "mr.mirocow@gmail.com",
-					"homepage": "http://www.mirocow.com"
+						"name": "Mirocow",
+						"email": "mr.mirocow@gmail.com",
+						"homepage": "http://www.mirocow.com"
 				}				
         ],
         "require": {
-                "yiisoft/yii2": "*"
+                "yiisoft/yii2": "*",
 				"ivaynberg/select2": "*"
         },
         "autoload": {
