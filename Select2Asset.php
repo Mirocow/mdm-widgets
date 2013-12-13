@@ -10,7 +10,7 @@ class Select2Asset extends \yii\web\AssetBundle
 	/**
 	 * @inheritdoc
 	 */
-	public $sourcePath = '@mdm/widgets/assets/select2';
+	public $sourcePath = '@vendor/ivaynberg/select2';
 	/**
 	 * @inheritdoc
 	 */
