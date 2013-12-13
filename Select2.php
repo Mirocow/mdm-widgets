@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\widgets;
+namespace mirocow\widgets;
 
 use yii\widgets\InputWidget;
 use yii\helpers\Html;

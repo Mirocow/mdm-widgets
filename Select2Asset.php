@@ -1,5 +1,5 @@
 <?php
-namespace mdm\widgets;
+namespace mirocow\widgets;
 /**
  * Description of Select2Asset
  *
